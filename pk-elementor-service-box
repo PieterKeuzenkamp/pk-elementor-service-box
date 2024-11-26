@@ -1,0 +1,24 @@
+<?php
+/**
+ * Plugin Name: PK Elementor Service Box
+ * Description: Een aangepaste Elementor-widget voor service boxen.
+ * Version: 1.0
+ * Author: Pieter Keuzenkamp
+ * Company: Pieter Keuzenkamp Websites
+ * Author URI: https://www.pieterkeuzenkamp.nl
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+ // Laad CSS en JS
+ function pk_elementor_service_box_assets() {
+     wp_enqueue_style( 'pk-service-box-style', plugin_dir_url( __FILE__ ) . 'assets/style.css' );
+ }
+ add_action( 'wp_enqueue_scripts', 'pk_elementor_service_box_assets' );
+ 
+ // Voeg Elementor-widget toe
+ function register_pk_service_box_widget( $widgets_manager ) {
+     require_once( __DIR__ . '/widgets/pk-service-box.php' );
+     $widgets_manager->register( new \PK_Service_Box_Widget() );
+ }
+ add_action( 'elementor/widgets/register', 'register_pk_service_box_widget' );
