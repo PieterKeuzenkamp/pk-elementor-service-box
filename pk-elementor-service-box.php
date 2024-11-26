@@ -3,8 +3,9 @@
  * Plugin Name: PK Elementor Service Box
  * Description: Een custom Elementor widget voor service boxes
  * Version: 1.0.0
- * Author: PK
- * Author URI: https://yourwebsite.com
+ * Author: Pieter Keuzenkamp
+ * Company: Pieter Keuzenkamp Websites
+ * Author URI: https://www.pieterkeuzenkamp.nl
  * Text Domain: pk-elementor-widgets
  * Requires Elementor: 3.0.0
  * Requires PHP: 7.0
