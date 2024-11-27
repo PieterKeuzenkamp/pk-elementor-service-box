@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PK Elementor Service Box
  * Description: Een custom Elementor widget voor service boxes
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Pieter Keuzenkamp
  * Company: Pieter Keuzenkamp Websites
  * Author URI: https://www.pieterkeuzenkamp.nl
@@ -22,17 +22,27 @@ function register_pk_service_box() {
 }
 add_action('elementor/widgets/register', 'register_pk_service_box');
 
-// Register Widget Icon
-function add_pk_elementor_widget_categories($elements_manager) {
+// Register Widget Categories
+function register_pkw_elementor_categories($elements_manager) {
     $elements_manager->add_category(
-        'pk-widgets',
+        'pkw-elements',
         [
-            'title' => __('PK Widgets', 'pk-elementor-widgets'),
+            'title' => __('PKW Elements', 'pk-elementor-widgets'),
             'icon' => 'fa fa-plug',
         ]
     );
 }
-add_action('elementor/elements/categories_registered', 'add_pk_elementor_widget_categories');
+add_action('elementor/elements/categories_registered', 'register_pkw_elementor_categories');
+
+// Add custom styles for PKW Elements category icons
+function add_pkw_elements_icon_styles() {
+    echo '<style>
+        .elementor-panel .elementor-element .icon i[class*="eicon-"]:before {
+            color: #007AFF;
+        }
+    </style>';
+}
+add_action('elementor/editor/after_enqueue_styles', 'add_pkw_elements_icon_styles');
 
 // Register Custom Icon
 function register_pk_widget_icon($additional_custom_icons) {
@@ -50,7 +60,7 @@ function pk_service_box_styles() {
         'pk-service-box',
         plugins_url('assets/style.css', __FILE__),
         [],
-        '1.0.0'
+        '1.1.0'
     );
     wp_enqueue_style('pk-service-box');
 }

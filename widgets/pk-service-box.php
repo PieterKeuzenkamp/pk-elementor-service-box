@@ -15,11 +15,11 @@ class PK_Service_Box_Widget extends Widget_Base {
     }
 
     public function get_title() {
-        return __('PK Service Box', 'pk-elementor-widgets');
+        return __('Service Box', 'pk-elementor-widgets');
     }
 
     public function get_icon() {
-        return 'pk-widget-icon';
+        return 'eicon-price-table';
     }
 
     public function get_custom_help_url() {
@@ -35,7 +35,7 @@ class PK_Service_Box_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return ['basic'];
+        return ['pkw-elements'];
     }
 
     protected function register_controls() {
@@ -63,6 +63,26 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Prijs', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('vanaf €230', 'pk-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'price_label',
+            [
+                'label' => __('Price Label', 'pk-elementor-widgets'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Vanaf', 'pk-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'container_background_image',
+            [
+                'label' => __('Background Image', 'pk-elementor-widgets'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => '',
+                ],
             ]
         );
 
@@ -105,7 +125,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     '%' => ['min' => 0, 'max' => 100],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -122,7 +142,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     'fixed' => __('Fixed', 'pk-elementor-widgets'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'position: {{VALUE}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'position: {{VALUE}};',
                 ],
             ]
         );
@@ -135,7 +155,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'min' => -9999,
                 'step' => 1,
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'z-index: {{VALUE}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'z-index: {{VALUE}};',
                 ],
             ]
         );
@@ -146,7 +166,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'name' => 'container_background',
                 'label' => __('Background', 'pk-elementor-widgets'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .service-box',
+                'selector' => '{{WRAPPER}} .stm-service-layout-info-box',
             ]
         );
 
@@ -156,7 +176,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Background Overlay', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .service-box::before' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box::before' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -168,7 +188,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -180,7 +200,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -190,7 +210,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'container_border',
                 'label' => __('Border', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .service-box',
+                'selector' => '{{WRAPPER}} .stm-service-layout-info-box',
             ]
         );
 
@@ -201,7 +221,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -227,7 +247,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 ],
                 'default' => 'left',
                 'selectors' => [
-                    '{{WRAPPER}} .service-box' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .stm-service-layout-info-box' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -248,7 +268,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'title_typography',
                 'label' => __('Typography', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .service-title',
+                'selector' => '{{WRAPPER}} .title',
             ]
         );
 
@@ -258,7 +278,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Color', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .service-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -268,7 +288,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'title_text_shadow',
                 'label' => __('Text Shadow', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .service-title',
+                'selector' => '{{WRAPPER}} .title',
             ]
         );
 
@@ -294,7 +314,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     '%' => ['min' => 0, 'max' => 100],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -311,7 +331,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     'fixed' => __('Fixed', 'pk-elementor-widgets'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'position: {{VALUE}};',
+                    '{{WRAPPER}} .service-price' => 'position: {{VALUE}};',
                 ],
             ]
         );
@@ -327,7 +347,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     '%' => ['min' => -100, 'max' => 100],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'top: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'price_position!' => 'relative',
@@ -346,7 +366,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     '%' => ['min' => -100, 'max' => 100],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'right: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'price_position!' => 'relative',
@@ -361,7 +381,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'min' => -9999,
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'z-index: {{VALUE}};',
+                    '{{WRAPPER}} .service-price' => 'z-index: {{VALUE}};',
                 ],
             ]
         );
@@ -372,7 +392,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'name' => 'price_background',
                 'label' => __('Background', 'pk-elementor-widgets'),
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .price-box',
+                'selector' => '{{WRAPPER}} .service-price',
             ]
         );
 
@@ -383,7 +403,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -395,7 +415,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -405,7 +425,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'price_border',
                 'label' => __('Border', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .price-box',
+                'selector' => '{{WRAPPER}} .service-price',
             ]
         );
 
@@ -416,7 +436,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .service-price' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -426,7 +446,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'price_typography',
                 'label' => __('Typography', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .price-box',
+                'selector' => '{{WRAPPER}} .service-price',
             ]
         );
 
@@ -436,7 +456,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Color', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .price-box' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .service-price' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -446,7 +466,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'price_text_shadow',
                 'label' => __('Text Shadow', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .price-box',
+                'selector' => '{{WRAPPER}} .service-price',
             ]
         );
 
@@ -455,7 +475,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'price_box_shadow',
                 'label' => __('Box Shadow', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .price-box',
+                'selector' => '{{WRAPPER}} .service-price',
             ]
         );
 
@@ -477,7 +497,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .service-list' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -489,7 +509,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .service-list' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -515,7 +535,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 ],
                 'default' => 'left',
                 'selectors' => [
-                    '{{WRAPPER}} .service-list' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .content' => 'text-align: {{VALUE}};',
                 ],
             ]
         );
@@ -525,7 +545,7 @@ class PK_Service_Box_Widget extends Widget_Base {
             [
                 'name' => 'list_typography',
                 'label' => __('Typography', 'pk-elementor-widgets'),
-                'selector' => '{{WRAPPER}} .service-list li',
+                'selector' => '{{WRAPPER}} .content li',
             ]
         );
 
@@ -535,7 +555,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Text Color', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .service-list li' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .content li' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -554,7 +574,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     'decimal' => __('Decimal', 'pk-elementor-widgets'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .service-list' => 'list-style-type: {{VALUE}};',
+                    '{{WRAPPER}} .content' => 'list-style-type: {{VALUE}};',
                 ],
             ]
         );
@@ -580,7 +600,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                 'label' => __('Icon Color', 'pk-elementor-widgets'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .service-list li::before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .content li::before' => 'color: {{VALUE}};',
                 ],
                 'condition' => [
                     'list_style_type' => 'none',
@@ -601,7 +621,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .service-list li::before' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .content li::before' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
                     'list_style_type' => 'none',
@@ -615,29 +635,23 @@ class PK_Service_Box_Widget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <div class="service-box">
-            <div class="price-box"><?php echo esc_html($settings['price']); ?></div>
-            <h2 class="service-title"><?php echo esc_html($settings['title']); ?></h2>
-            <ul class="service-list">
-                <?php 
-                foreach ($settings['list_items'] as $item) :
-                    if ($settings['list_style_type'] === 'none' && !empty($settings['list_icon']['value'])) :
-                        ?>
-                        <li class="elementor-icon-list-item">
-                            <span class="elementor-icon-list-icon">
-                                <?php \Elementor\Icons_Manager::render_icon($settings['list_icon'], ['aria-hidden' => 'true']); ?>
-                            </span>
-                            <span class="elementor-icon-list-text"><?php echo esc_html($item['list_item']); ?></span>
-                        </li>
-                        <?php
-                    else :
-                        ?>
-                        <li><?php echo esc_html($item['list_item']); ?></li>
-                        <?php
-                    endif;
-                endforeach; 
-                ?>
-            </ul>
+        <div class="stm-service-layout-info-box">
+            <div class="inner" style="background-image: url('<?php echo esc_url($settings['container_background_image']['url'] ?? ''); ?>');">
+                <div class="title heading-font"><?php echo esc_html($settings['title']); ?></div>
+
+                <div class="service-price heading-font">
+                    <div class="price-label"><?php echo esc_html($settings['price_label'] ?? 'Vanaf'); ?></div>
+                    <div class="price-value"><?php echo esc_html($settings['price']); ?></div>
+                </div>
+
+                <div class="content">
+                    <ul>
+                        <?php foreach ($settings['list_items'] as $item) : ?>
+                            <li><?php echo esc_html($item['list_item']); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
         </div>
         <?php
     }
