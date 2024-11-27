@@ -19,7 +19,19 @@ class PK_Service_Box_Widget extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-box';
+        return 'pk-widget-icon';
+    }
+
+    public function get_custom_help_url() {
+        return 'https://www.pieterkeuzenkamp.nl';
+    }
+
+    public function get_style_depends() {
+        return ['pk-service-box'];
+    }
+
+    public function get_script_depends() {
+        return [];
     }
 
     public function get_categories() {
