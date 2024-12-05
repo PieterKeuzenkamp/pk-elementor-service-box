@@ -1,17 +1,17 @@
-.stm-service-layout-info-box {
+.pk-service-layout-info-box {
     max-width: 350px;
     width: auto;
     margin: 0 auto 30px !important;
 }
 
-.stm-service-layout-info-box .inner {
+.pk-service-layout-info-box .inner {
     background-size: cover;
     background-position: 100% 0;
     padding: 50px 35px 29px;
     box-shadow: inset 0 0 92px rgba(0,0,0,.1);
 }
 
-.stm-service-layout-info-box .inner .title {
+.pk-service-layout-info-box .inner .title {
     min-height: 72px;
     margin-bottom: 18px;
     padding-right: 45px;
@@ -21,7 +21,7 @@
     text-transform: uppercase;
 }
 
-.stm-service-layout-info-box .inner .service-price {
+.pk-service-layout-info-box .inner .service-price {
     display: inline-block;
     min-width: 108px;
     margin-bottom: 31px;
@@ -31,31 +31,31 @@
     color: #fff;
 }
 
-.stm-service-layout-info-box .inner .service-price .price-label {
+.pk-service-layout-info-box .inner .service-price .price-label {
     margin-bottom: 1px;
     text-transform: uppercase;
     font-size: 12px;
     line-height: 12px;
 }
 
-.stm-service-layout-info-box .inner .service-price .price-value {
+.pk-service-layout-info-box .inner .service-price .price-value {
     text-indent: -2px;
     font-size: 24px;
 }
 
-.stm-service-layout-info-box .inner .content ul {
+.pk-service-layout-info-box .inner .content ul {
     list-style: none;
     padding: 0;
 }
 
-.stm-service-layout-info-box .inner .content ul li {
+.pk-service-layout-info-box .inner .content ul li {
     position: relative;
     padding-left: 7px;
     margin-bottom: 2px;
     font-size: 13px;
 }
 
-.stm-service-layout-info-box .inner .content ul li:before {
+.pk-service-layout-info-box .inner .content ul li:before {
     position: absolute;
     content: "";
     display: block;
@@ -73,11 +73,11 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .stm-service-layout-info-box .inner {
+    .pk-service-layout-info-box .inner {
         padding: 30px 20px;
     }
     
-    .stm-service-layout-info-box .inner .title {
+    .pk-service-layout-info-box .inner .title {
         min-height: auto;
         padding-right: 0;
     }

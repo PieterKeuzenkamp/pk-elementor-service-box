@@ -7,17 +7,23 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
-if (!defined('ABSPATH')) exit;
+// Verzeker dat Elementor beschikbaar is voordat we verder gaan
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Blokkeer directe toegang
+}
 
 class PK_Service_Box_Widget extends Widget_Base {
-    public function get_name() {
+
+    // Geef de widget een unieke naam
+        public function get_name() {
         return 'pk_service_box';
     }
-
+    // Geef de widget een titel weer in Elementor
     public function get_title() {
         return __('Service Box', 'pk-elementor-widgets');
     }
 
+    // Specificeer een icoon voor de widget
     public function get_icon() {
         return 'eicon-price-table';
     }
@@ -125,7 +131,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     '%' => ['min' => 0, 'max' => 100],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .stm-service-layout-info-box' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pk-service-layout-info-box' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -142,7 +148,7 @@ class PK_Service_Box_Widget extends Widget_Base {
                     'fixed' => __('Fixed', 'pk-elementor-widgets'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .stm-service-layout-info-box' => 'position: {{VALUE}};',
+                    '{{WRAPPER}} .pk-service-layout-info-box' => 'position: {{VALUE}};',
                 ],
             ]
         );
@@ -635,7 +641,7 @@ class PK_Service_Box_Widget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         ?>
-        <div class="stm-service-layout-info-box">
+        <div class="pk-service-layout-info-box">
             <div class="inner" style="background-image: url('<?php echo esc_url($settings['container_background_image']['url'] ?? ''); ?>');">
                 <div class="title heading-font"><?php echo esc_html($settings['title']); ?></div>
 
